@@ -3,34 +3,34 @@
     <b-row class="justify-content-center">
       <b-col md="6" lg="6">
         <UIComponentCard title="Basic">
-          <b-progress class="mb-3" :value="10" />
-          <b-progress class="mb-3" :value="20" />
-          <b-progress class="mb-3" :value="30" />
-          <b-progress class="mb-3" :value="40" />
-          <b-progress class="mb-3" :value="50" />
-          <b-progress :value="60" />
+          <CustomProgress class="mb-3" :value="10" />
+          <CustomProgress class="mb-3" :value="20" />
+          <CustomProgress class="mb-3" :value="30" />
+          <CustomProgress class="mb-3" :value="40" />
+          <CustomProgress class="mb-3" :value="50" />
+          <CustomProgress :value="60" />
         </UIComponentCard>
       </b-col>
       <b-col md="6" lg="6">
         <UIComponentCard title="Striped And Animated">
-          <b-progress class="mb-3" variant="warning" striped :value="15" />
-          <b-progress class="mb-3" variant="success" striped :value="30" />
-          <b-progress class="mb-3" variant="primary" striped :value="45" />
-          <b-progress
+          <CustomProgress class="mb-3" variant="warning" striped :value="15" />
+          <CustomProgress class="mb-3" variant="success" striped :value="30" />
+          <CustomProgress class="mb-3" variant="primary" striped :value="45" />
+          <CustomProgress
             class="mb-3"
             variant="info"
             striped
             animated
             :value="60"
           />
-          <b-progress
+          <CustomProgress
             class="mb-3"
             variant="danger"
             striped
             animated
             :value="75"
           />
-          <b-progress variant="primary" striped animated :value="90" />
+          <CustomProgress variant="primary" striped animated :value="90" />
         </UIComponentCard>
       </b-col>
     </b-row>
@@ -38,15 +38,15 @@
     <b-row class="justify-content-center">
       <b-col md="6" lg="6">
         <UIComponentCard title="Labels And Multiple Bars">
-          <b-progress class="mb-3" variant="secondary" show-value :value="20" />
-          <b-progress
+          <CustomProgress class="mb-3" variant="secondary" show-value :value="20" />
+          <CustomProgress
             class="mb-3"
             variant="secondary"
             show-value
             :value="40"
             striped
           />
-          <b-progress class="mb-3">
+          <CustomProgress class="mb-3">
             <b-progress-bar :value="20" show-value variant="primary" />
             <b-progress-bar
               :value="20"
@@ -61,20 +61,20 @@
               striped
               animated
             />
-          </b-progress>
+          </CustomProgress>
 
-          <b-progress>
+          <CustomProgress>
             <b-progress-bar :value="20" variant="primary" />
             <b-progress-bar :value="40" variant="secondary" />
             <b-progress-bar :value="20" variant="info" />
-          </b-progress>
+          </CustomProgress>
         </UIComponentCard>
       </b-col>
       <b-col md="6" lg="6">
         <UIComponentCard title="Height">
-          <b-progress class="mb-3" show-value :value="15" style="height: 3px" />
-          <b-progress class="mb-3" striped :value="45" />
-          <b-progress striped animated :value="60" style="height: 14px" />
+          <CustomProgress class="mb-3" show-value :value="15" :style="{ height: '3px' }" />
+          <CustomProgress class="mb-3" striped :value="45" />
+          <CustomProgress striped animated :value="60" :style="{ height: '14px' }" />
         </UIComponentCard>
       </b-col>
     </b-row>
@@ -195,7 +195,9 @@
     </b-row>
   </DefaultLayout>
 </template>
+
 <script setup lang="ts">
 import DefaultLayout from "@/layouts/DefaultLayout.vue";
 import UIComponentCard from "@/components/UIComponentCard.vue";
+import CustomProgress from "@/components/ui/Progress.vue";
 </script>

@@ -4,30 +4,28 @@
       <b-col md="6" lg="6">
         <UIComponentCard title="Default Buttons">
           <div class="d-flex flex-wrap gap-2">
-            <b-button type="button" variant="primary">Primary</b-button>
-            <b-button type="button" variant="secondary">Secondary</b-button>
-            <b-button type="button" variant="success">Success</b-button>
-            <b-button type="button" variant="warning">Warning</b-button>
-            <b-button type="button" variant="info">Info</b-button>
-            <b-button type="button" variant="danger">Danger</b-button>
-            <b-button type="button" variant="dark">Dark</b-button>
-            <b-button type="button" variant="light">Light</b-button>
+            <CustomButton variant="primary">Primary</CustomButton>
+            <CustomButton variant="secondary">Secondary</CustomButton>
+            <CustomButton variant="success">Success</CustomButton>
+            <CustomButton variant="warning">Warning</CustomButton>
+            <CustomButton variant="info">Info</CustomButton>
+            <CustomButton variant="danger">Danger</CustomButton>
+            <CustomButton variant="dark">Dark</CustomButton>
+            <CustomButton variant="light">Light</CustomButton>
           </div>
         </UIComponentCard>
       </b-col>
       <b-col md="6" lg="6">
         <UIComponentCard title="Outline Buttons">
           <div class="d-flex flex-wrap gap-2">
-            <b-button type="button" variant="outline-primary">Primary</b-button>
-            <b-button type="button" variant="outline-secondary"
-              >Secondary</b-button
-            >
-            <b-button type="button" variant="outline-success">Success</b-button>
-            <b-button type="button" variant="outline-warning">Warning</b-button>
-            <b-button type="button" variant="outline-info">Info</b-button>
-            <b-button type="button" variant="outline-danger">Danger</b-button>
-            <b-button type="button" variant="outline-dark">Dark</b-button>
-            <b-button type="button" variant="outline-light">Light</b-button>
+            <CustomButton variant="outline-primary">Primary</CustomButton>
+            <CustomButton variant="outline-secondary">Secondary</CustomButton>
+            <CustomButton variant="outline-success">Success</CustomButton>
+            <CustomButton variant="outline-warning">Warning</CustomButton>
+            <CustomButton variant="outline-info">Info</CustomButton>
+            <CustomButton variant="outline-danger">Danger</CustomButton>
+            <CustomButton variant="outline-dark">Dark</CustomButton>
+            <CustomButton variant="outline-light">Light</CustomButton>
           </div>
         </UIComponentCard>
       </b-col>
@@ -37,42 +35,28 @@
       <b-col md="6" lg="6">
         <UIComponentCard title="Round Buttons">
           <div class="d-flex flex-wrap gap-2">
-            <b-button type="button" pill variant="primary">Primary</b-button>
-            <b-button type="button" pill variant="secondary"
-              >Secondary</b-button
-            >
-            <b-button type="button" pill variant="success">Success</b-button>
-            <b-button type="button" pill variant="warning">Warning</b-button>
-            <b-button type="button" pill variant="info">Info</b-button>
-            <b-button type="button" pill variant="danger">Danger</b-button>
-            <b-button type="button" pill variant="dark">Dark</b-button>
-            <b-button type="button" pill variant="light">Light</b-button>
+            <CustomButton pill variant="primary">Primary</CustomButton>
+            <CustomButton pill variant="secondary">Secondary</CustomButton>
+            <CustomButton pill variant="success">Success</CustomButton>
+            <CustomButton pill variant="warning">Warning</CustomButton>
+            <CustomButton pill variant="info">Info</CustomButton>
+            <CustomButton pill variant="danger">Danger</CustomButton>
+            <CustomButton pill variant="dark">Dark</CustomButton>
+            <CustomButton pill variant="light">Light</CustomButton>
           </div>
         </UIComponentCard>
       </b-col>
       <b-col md="6" lg="6">
         <UIComponentCard title="Round Outline Buttons">
           <div class="d-flex flex-wrap gap-2">
-            <b-button type="button" pill variant="outline-primary"
-              >Primary</b-button
-            >
-            <b-button type="button" pill variant="outline-secondary"
-              >Secondary</b-button
-            >
-            <b-button type="button" pill variant="outline-success"
-              >Success</b-button
-            >
-            <b-button type="button" pill variant="outline-warning"
-              >Warning</b-button
-            >
-            <b-button type="button" pill variant="outline-info">Info</b-button>
-            <b-button type="button" pill variant="outline-danger"
-              >Danger</b-button
-            >
-            <b-button type="button" pill variant="outline-dark">Dark</b-button>
-            <b-button type="button" pill variant="outline-light"
-              >Light</b-button
-            >
+            <CustomButton pill variant="outline-primary">Primary</CustomButton>
+            <CustomButton pill variant="outline-secondary">Secondary</CustomButton>
+            <CustomButton pill variant="outline-success">Success</CustomButton>
+            <CustomButton pill variant="outline-warning">Warning</CustomButton>
+            <CustomButton pill variant="outline-info">Info</CustomButton>
+            <CustomButton pill variant="outline-danger">Danger</CustomButton>
+            <CustomButton pill variant="outline-dark">Dark</CustomButton>
+            <CustomButton pill variant="outline-light">Light</CustomButton>
           </div>
         </UIComponentCard>
       </b-col>
@@ -82,26 +66,18 @@
       <b-col md="6" lg="6">
         <UIComponentCard title="Buttons Sizes">
           <div class="d-flex flex-wrap align-items-center gap-2">
-            <b-button type="button" size="lg" variant="primary"
-              >Primary</b-button
-            >
-            <b-button type="button" variant="secondary">Secondary</b-button>
-            <b-button type="button" size="sm" variant="dark">Dark</b-button>
+            <CustomButton size="lg" variant="primary">Primary</CustomButton>
+            <CustomButton variant="secondary">Secondary</CustomButton>
+            <CustomButton size="sm" variant="dark">Dark</CustomButton>
           </div>
         </UIComponentCard>
       </b-col>
       <b-col md="6" lg="6">
         <UIComponentCard title="Outline Buttons Sizes">
           <div class="d-flex flex-wrap align-items-center gap-2">
-            <b-button type="button" size="lg" variant="outline-primary"
-              >Primary</b-button
-            >
-            <b-button type="button" variant="outline-secondary"
-              >Secondary</b-button
-            >
-            <b-button type="button" size="sm" variant="outline-dark"
-              >Dark</b-button
-            >
+            <CustomButton size="lg" variant="outline-primary">Primary</CustomButton>
+            <CustomButton variant="outline-secondary">Secondary</CustomButton>
+            <CustomButton size="sm" variant="outline-dark">Dark</CustomButton>
           </div>
         </UIComponentCard>
       </b-col>
@@ -111,24 +87,16 @@
       <b-col md="6" lg="6">
         <UIComponentCard title="Disabled Buttons">
           <div class="d-flex flex-wrap gap-2">
-            <b-button type="button" variant="primary" disabled
-              >Primary</b-button
-            >
-            <b-button type="button" variant="secondary" disabled
-              >Secondary</b-button
-            >
+            <CustomButton variant="primary" disabled>Primary</CustomButton>
+            <CustomButton variant="secondary" disabled>Secondary</CustomButton>
           </div>
         </UIComponentCard>
       </b-col>
       <b-col md="6" lg="6">
         <UIComponentCard title="Disabled Outline Buttons">
           <div class="d-flex flex-wrap gap-2">
-            <b-button type="button" variant="outline-primary" disabled
-              >Primary</b-button
-            >
-            <b-button type="button" variant="outline-secondary" disabled
-              >Secondary</b-button
-            >
+            <CustomButton variant="outline-primary" disabled>Primary</CustomButton>
+            <CustomButton variant="outline-secondary" disabled>Secondary</CustomButton>
           </div>
         </UIComponentCard>
       </b-col>
@@ -138,24 +106,16 @@
       <b-col md="6" lg="6">
         <UIComponentCard title="Block Buttons">
           <div class="d-flex flex-wrap gap-2">
-            <b-button type="button" variant="primary" class="w-100"
-              >Primary</b-button
-            >
-            <b-button type="button" variant="secondary" class="w-100"
-              >Secondary</b-button
-            >
+            <CustomButton variant="primary" custom-class="w-100">Primary</CustomButton>
+            <CustomButton variant="secondary" custom-class="w-100">Secondary</CustomButton>
           </div>
         </UIComponentCard>
       </b-col>
       <b-col md="6" lg="6">
         <UIComponentCard title="Block Outline Buttons">
           <div class="d-flex flex-wrap gap-2">
-            <b-button type="button" variant="outline-primary" class="w-100"
-              >Primary</b-button
-            >
-            <b-button type="button" variant="outline-secondary" class="w-100"
-              >Secondary</b-button
-            >
+            <CustomButton variant="outline-primary" custom-class="w-100">Primary</CustomButton>
+            <CustomButton variant="outline-secondary" custom-class="w-100">Secondary</CustomButton>
           </div>
         </UIComponentCard>
       </b-col>
@@ -234,8 +194,8 @@
 
         <UIComponentCard title="Button Group">
           <div class="btn-group-vertical">
-            <b-button type="button" variant="primary">Button 1</b-button>
-            <b-button type="button" variant="primary">Button 2</b-button>
+            <CustomButton variant="primary">Button 1</CustomButton>
+            <CustomButton variant="primary">Button 2</CustomButton>
             <b-dropdown text="Button 3" variant="primary">
               <b-dropdown-item>Dropdown link</b-dropdown-item>
               <b-dropdown-item>Dropdown link</b-dropdown-item>
@@ -247,61 +207,51 @@
         <UIComponentCard title="Button Group">
           <div class="mb-3">
             <b-button-group>
-              <b-button type="button" variant="outline-secondary"
+              <CustomButton variant="outline-secondary"
                 ><i class="fa fa-align-left"></i
-              ></b-button>
-              <b-button type="button" variant="outline-secondary"
+              ></CustomButton>
+              <CustomButton variant="outline-secondary"
                 ><i class="fa fa-align-center"></i
-              ></b-button>
-              <b-button type="button" variant="outline-secondary"
+              ></CustomButton>
+              <CustomButton variant="outline-secondary"
                 ><i class="fa fa-align-right"></i
-              ></b-button>
+              ></CustomButton>
             </b-button-group>
           </div>
           <div class="mb-3">
             <b-button-group>
-              <b-button type="button" variant="outline-secondary"
+              <CustomButton variant="outline-secondary"
                 ><i class="las la-play"></i
-              ></b-button>
-              <b-button type="button" variant="outline-primary" active
+              ></CustomButton>
+              <CustomButton variant="outline-primary" active
                 ><i class="las la-pause"></i
-              ></b-button>
-              <b-button type="button" variant="outline-secondary"
+              ></CustomButton>
+              <CustomButton variant="outline-secondary"
                 ><i class="las la-stop"></i
-              ></b-button>
+              ></CustomButton>
             </b-button-group>
           </div>
           <div class="mb-3">
             <b-button-group>
-              <b-button type="button" variant="outline-secondary"
-                >Left</b-button
-              >
-              <b-button type="button" variant="outline-secondary"
-                >Middle</b-button
-              >
-              <b-button type="button" variant="outline-secondary"
-                >Right</b-button
-              >
+              <CustomButton variant="outline-secondary">Left</CustomButton>
+              <CustomButton variant="outline-secondary">Middle</CustomButton>
+              <CustomButton variant="outline-secondary">Right</CustomButton>
             </b-button-group>
           </div>
           <div class="mb-3">
             <b-button-group>
-              <b-button type="button" variant="outline-secondary">1</b-button>
-              <b-button type="button" variant="outline-secondary">2</b-button>
-              <b-button type="button" variant="primary" active>3</b-button>
-              <b-button type="button" variant="outline-secondary"
-                >4</b-button
-              > </b-button-group
-            >{{ " " }}
+              <CustomButton variant="outline-secondary">1</CustomButton>
+              <CustomButton variant="outline-secondary">2</CustomButton>
+              <CustomButton variant="primary" active>3</CustomButton>
+              <CustomButton variant="outline-secondary">4</CustomButton>
+            </b-button-group>
             <b-button-group>
-              <b-button type="button" variant="outline-secondary">5</b-button>
-              <b-button type="button" variant="primary" active>6</b-button>
-              <b-button type="button" variant="outline-secondary"
-                >7</b-button
-              > </b-button-group
-            >{{ " " }}
+              <CustomButton variant="outline-secondary">5</CustomButton>
+              <CustomButton variant="primary" active>6</CustomButton>
+              <CustomButton variant="outline-secondary">7</CustomButton>
+            </b-button-group>
             <b-button-group>
-              <b-button type="button" variant="outline-secondary">8</b-button>
+              <CustomButton variant="outline-secondary">8</CustomButton>
             </b-button-group>
           </div>
         </UIComponentCard>
@@ -309,7 +259,9 @@
     </b-row>
   </DefaultLayout>
 </template>
+
 <script setup lang="ts">
 import DefaultLayout from "@/layouts/DefaultLayout.vue";
 import UIComponentCard from "@/components/UIComponentCard.vue";
+import CustomButton from "@/components/ui/Button.vue";
 </script>

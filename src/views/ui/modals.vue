@@ -261,14 +261,14 @@
     </b-row>
 
     <!-- Small Modal -->
-    <b-modal
+    <CustomModal
       v-model="smModal"
       title="Small Modal"
       size="sm"
       ok-title="Save changes"
       cancel-title="Close"
-      hideFooter
-      bodyClass="p-0 m-0"
+      :hide-footer="true"
+      body-class="p-0 m-0"
     >
       <div class="text-center py-3">
         <img
@@ -291,10 +291,10 @@
           >Save changes</b-button
         >
       </div>
-    </b-modal>
+    </CustomModal>
 
     <!-- Default -->
-    <b-modal
+    <CustomModal
       v-model="defaultModal"
       title="Default Modal"
       ok-title="Save changes"
@@ -317,10 +317,15 @@
           </ul>
         </b-col>
       </b-row>
-    </b-modal>
+    </CustomModal>
 
     <!-- Large -->
-    <b-modal v-model="largeModal" title="Large Modal" size="lg" hide-footer>
+    <CustomModal
+      v-model="largeModal"
+      title="Large Modal"
+      size="lg"
+      :hide-footer="true"
+    >
       <b-row>
         <b-col lg="4" class="text-center">
           <img :src="find" alt="" class="img-fluid" />
@@ -335,10 +340,10 @@
           </div>
         </b-col>
       </b-row>
-    </b-modal>
+    </CustomModal>
 
     <!-- Extra large -->
-    <b-modal
+    <CustomModal
       v-model="extralargeModal"
       title="Extra Large Modal"
       size="xl"
@@ -388,15 +393,15 @@
         magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec
         ullamcorper nulla non metus auctor fringilla.
       </p>
-    </b-modal>
+    </CustomModal>
 
     <!-- Default (Center Modal) -->
-    <b-modal
+    <CustomModal
       v-model="centerModal"
       title="Center Modal"
       ok-title="Save changes"
       cancel-title="Close"
-      centered
+      :centered="true"
     >
       <b-row>
         <b-col lg="3" class="text-center align-self-center">
@@ -415,10 +420,10 @@
           </ul>
         </b-col>
       </b-row>
-    </b-modal>
+    </CustomModal>
 
     <!-- Default (Scroll Modal) -->
-    <b-modal
+    <CustomModal
       v-model="scrollableModal"
       title="Center Modal"
       ok-title="Save changes"
@@ -505,16 +510,16 @@
         dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
         consectetur ac, vestibulum at eros.
       </p>
-    </b-modal>
+    </CustomModal>
 
     <!-- Fullscreen Modal -->
-    <b-modal
+    <CustomModal
       v-model="fsModal"
       title="Full screen modal"
-      ok-only
+      :ok-only="true"
       ok-title="Close"
       ok-variant="secondary"
-      fullscreen
+      :fullscreen="true"
     >
       <p>
         Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
@@ -600,12 +605,12 @@
         magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec
         ullamcorper nulla non metus auctor fringilla.
       </p>
-    </b-modal>
+    </CustomModal>
 
-    <b-modal
+    <CustomModal
       v-model="fsBSMModal"
       :title="`Full screen below ${fsBSMModalVariant}`"
-      ok-only
+      :ok-only="true"
       ok-title="Close"
       ok-variant="secondary"
       :fullscreen="fsBSMModalVariant"
@@ -615,10 +620,10 @@
         dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
         consectetur ac, vestibulum at eros.
       </p>
-    </b-modal>
+    </CustomModal>
 
     <!-- Theme Color Modal -->
-    <b-modal
+    <CustomModal
       v-model="themeColorModal"
       :title="`${themeColor} Modal`"
       :header-class="`bg-${themeColor}`"
@@ -644,9 +649,10 @@
           </ul>
         </b-col>
       </b-row>
-    </b-modal>
+    </CustomModal>
   </DefaultLayout>
 </template>
+
 <script setup lang="ts">
 import { ref } from "vue";
 
@@ -681,4 +687,5 @@ import avatar5 from "@/assets/images/users/avatar-5.jpg";
 
 import DefaultLayout from "@/layouts/DefaultLayout.vue";
 import UIComponentCard from "@/components/UIComponentCard.vue";
+import CustomModal from "@/components/ui/Modal.vue";
 </script>

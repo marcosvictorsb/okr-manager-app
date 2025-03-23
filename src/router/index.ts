@@ -20,6 +20,8 @@ router.beforeEach((routeTo, routeFrom, next) => {
   // (including nested routes).
   const authRequired = routeTo.matched.some((route) => route.meta.authRequired);
 
+  console.log({ authRequired })
+
   // If auth isn't required for the route, just continue.
   if (!authRequired) return next();
 
@@ -34,6 +36,7 @@ router.beforeEach((routeTo, routeFrom, next) => {
   redirectToLogin();
 
   function redirectToLogin() {
+    console.log('voltou para o login caralho')
     // Pass the original route to the login component
     next({ name: "auth.sign-in", query: { redirectedFrom: routeTo.fullPath } });
   }

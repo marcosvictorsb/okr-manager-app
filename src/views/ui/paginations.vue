@@ -3,33 +3,29 @@
     <b-row class="justify-content-center">
       <b-col md="6" lg="6">
         <UIComponentCard title="Default Example">
-          <b-pagination
-            v-model="currentPage"
+          <CustomPagination
             :total-rows="15"
             :per-page="perPageItem"
             prev-text="Previous"
             next-text="Next"
           />
-          <b-pagination
-            v-model="currentPage"
+          <CustomPagination
             :total-rows="15"
             :per-page="perPageItem"
-            first-number
-            last-number
+            :first-number="true"
+            :last-number="true"
           />
         </UIComponentCard>
       </b-col>
       <b-col md="6" lg="6">
         <UIComponentCard title="Disabled And Active States">
-          <b-pagination
-            v-model="currentPage"
+          <CustomPagination
             :total-rows="15"
             :per-page="perPageItem"
             prev-text="Previous"
             next-text="Next"
           />
-          <b-pagination
-            v-model="currentPage"
+          <CustomPagination
             :total-rows="15"
             :per-page="perPageItem"
             prev-text="Previous"
@@ -42,20 +38,18 @@
     <b-row class="justify-content-center">
       <b-col md="12">
         <UIComponentCard title="Sizing Example">
-          <b-pagination
-            v-model="currentPage"
+          <CustomPagination
             :total-rows="15"
             :per-page="perPageItem"
-            first-number
-            last-number
+            :first-number="true"
+            :last-number="true"
             size="lg"
           />
-          <b-pagination
-            v-model="currentPage"
+          <CustomPagination
             :total-rows="15"
             :per-page="perPageItem"
-            first-number
-            last-number
+            :first-number="true"
+            :last-number="true"
             size="sm"
           />
         </UIComponentCard>
@@ -65,39 +59,37 @@
     <b-row class="justify-content-center">
       <b-col md="12">
         <UIComponentCard title="Alignment Example">
-          <b-pagination
-            v-model="currentPage"
+          <CustomPagination
             :total-rows="15"
             :per-page="perPageItem"
             prev-text="Previous"
             next-text="Next"
           />
-          <b-pagination
-            v-model="currentPage"
+          <CustomPagination
             :total-rows="15"
             :per-page="perPageItem"
             prev-text="Previous"
             next-text="Next"
-            class="justify-content-center"
+            alignment-class="justify-content-center"
           />
-          <b-pagination
-            v-model="currentPage"
+          <CustomPagination
             :total-rows="15"
             :per-page="perPageItem"
             prev-text="Previous"
             next-text="Next"
-            class="justify-content-end"
+            alignment-class="justify-content-end"
           />
         </UIComponentCard>
       </b-col>
     </b-row>
   </DefaultLayout>
 </template>
+
 <script setup lang="ts">
 import { ref } from "vue";
 const perPageItem = ref(5);
-const currentPage = ref(1);
 
 import DefaultLayout from "@/layouts/DefaultLayout.vue";
 import UIComponentCard from "@/components/UIComponentCard.vue";
+import CustomPagination from "@/components/ui/Pagination.vue";
 </script>

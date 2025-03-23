@@ -1,5 +1,6 @@
 <template>
   <DefaultLayout>
+    <!-- Primeira linha de tabelas -->
     <b-row class="justify-content-center">
       <b-col md="6" lg="6">
         <b-card no-body>
@@ -11,131 +12,50 @@
             </b-row>
           </b-card-header>
           <b-card-body class="pt-0">
-            <b-table-simple responsive class="mb-0 table-centered">
-              <b-thead class="table-light">
-                <b-tr>
-                  <b-th>Company</b-th>
-                  <b-th>Bill</b-th>
-                  <b-th>Average Bill</b-th>
-                  <b-th>Paid Bill</b-th>
-                  <b-th class="text-end">Action</b-th>
-                </b-tr>
-              </b-thead>
-              <b-tbody>
-                <b-tr>
-                  <b-td
-                    ><img
-                      :src="chatgpt"
-                      alt=""
-                      class="rounded-circle thumb-md me-1 d-inline"
-                    />
-                    Micromin
-                  </b-td>
-                  <b-td>4</b-td>
-                  <b-td>{{ currency }}250</b-td>
-                  <b-td>{{ currency }}800</b-td>
-                  <b-td class="text-end">
-                    <b-dropdown
-                      :variant="null"
-                      class="d-inline-block"
-                      menu-class="dropdown-menu-end"
-                      toggle-class="p-0 m-0"
-                    >
-                      <template #button-content>
-                        <i class="las la-ellipsis-v fs-20 text-muted"></i>
-                      </template>
-                      <b-dropdown-item>Create Project</b-dropdown-item>
-                      <b-dropdown-item>Open Project</b-dropdown-item>
-                      <b-dropdown-item>Tasks Details</b-dropdown-item>
-                    </b-dropdown>
-                  </b-td>
-                </b-tr>
-                <b-tr>
-                  <b-td
-                    ><img
-                      :src="nextjs"
-                      alt=""
-                      class="rounded-circle thumb-md me-1 d-inline"
-                    />
-                    ZZ Diamond
-                  </b-td>
-                  <b-td>2</b-td>
-                  <b-td>{{ currency }}180</b-td>
-                  <b-td>{{ currency }}400</b-td>
-                  <b-td class="text-end">
-                    <b-dropdown
-                      :variant="null"
-                      class="d-inline-block"
-                      menu-class="dropdown-menu-end"
-                      toggle-class="p-0 m-0"
-                    >
-                      <template #button-content>
-                        <i class="las la-ellipsis-v fs-20 text-muted"></i>
-                      </template>
-                      <b-dropdown-item>Create Project</b-dropdown-item>
-                      <b-dropdown-item>Open Project</b-dropdown-item>
-                      <b-dropdown-item>Tasks Details</b-dropdown-item>
-                    </b-dropdown>
-                  </b-td>
-                </b-tr>
-                <b-tr>
-                  <b-td
-                    ><img
-                      :src="reactjs"
-                      alt=""
-                      class="rounded-circle thumb-md me-1 d-inline"
-                    />
-                    Dairy Sweet
-                  </b-td>
-                  <b-td>6</b-td>
-                  <b-td>{{ currency }}210</b-td>
-                  <b-td>{{ currency }}500</b-td>
-                  <b-td class="text-end">
-                    <b-dropdown
-                      :variant="null"
-                      class="d-inline-block"
-                      menu-class="dropdown-menu-end"
-                      toggle-class="p-0 m-0"
-                    >
-                      <template #button-content>
-                        <i class="las la-ellipsis-v fs-20 text-muted"></i>
-                      </template>
-                      <b-dropdown-item>Create Project</b-dropdown-item>
-                      <b-dropdown-item>Open Project</b-dropdown-item>
-                      <b-dropdown-item>Tasks Details</b-dropdown-item>
-                    </b-dropdown>
-                  </b-td>
-                </b-tr>
-                <b-tr>
-                  <b-td
-                    ><img
-                      :src="symfony"
-                      alt=""
-                      class="rounded-circle thumb-md me-1 d-inline"
-                    />
-                    Corner Tea
-                  </b-td>
-                  <b-td>3</b-td>
-                  <b-td>{{ currency }}80</b-td>
-                  <b-td>{{ currency }}350</b-td>
-                  <b-td class="text-end">
-                    <b-dropdown
-                      :variant="null"
-                      class="d-inline-block"
-                      menu-class="dropdown-menu-end"
-                      toggle-class="p-0 m-0"
-                    >
-                      <template #button-content>
-                        <i class="las la-ellipsis-v fs-20 text-muted"></i>
-                      </template>
-                      <b-dropdown-item>Create Project</b-dropdown-item>
-                      <b-dropdown-item>Open Project</b-dropdown-item>
-                      <b-dropdown-item>Tasks Details</b-dropdown-item>
-                    </b-dropdown>
-                  </b-td>
-                </b-tr>
-              </b-tbody>
-            </b-table-simple>
+            <CustomTable
+              :headers="['Company', 'Bill', 'Average Bill', 'Paid Bill']"
+              :rows="[
+                {
+                  cells: [
+                    { type: 'image', src: chatgpt, alt: 'Micromin', text: 'Micromin' },
+                    '4',
+                    '250',
+                    '800',
+                  ],
+                },
+                {
+                  cells: [
+                    { type: 'image', src: nextjs, alt: 'ZZ Diamond', text: 'ZZ Diamond' },
+                    '2',
+                    '180',
+                    '400',
+                  ],
+                },
+                {
+                  cells: [
+                    { type: 'image', src: reactjs, alt: 'Dairy Sweet', text: 'Dairy Sweet' },
+                    '6',
+                    '210',
+                    '500',
+                  ],
+                },
+                {
+                  cells: [
+                    { type: 'image', src: symfony, alt: 'Corner Tea', text: 'Corner Tea' },
+                    '3',
+                    '80',
+                    '350',
+                  ],
+                },
+              ]"
+              :actions="{
+                view: (row) => handleView(row),
+                edit: (row) => handleEdit(row),
+                custom: [
+                  { label: 'Delete', handler: (row) => handleDelete(row) },
+                ],
+              }"
+            />
           </b-card-body>
         </b-card>
       </b-col>
@@ -149,112 +69,54 @@
             </b-row>
           </b-card-header>
           <b-card-body class="pt-0">
-            <b-table-simple responsive bordered class="mb-0 table-centered">
-              <b-thead>
-                <b-tr>
-                  <b-th>Transaction ID</b-th>
-                  <b-th>Date</b-th>
-                  <b-th>Price</b-th>
-                  <b-th>Order Status</b-th>
-                  <b-th class="text-end">Action</b-th>
-                </b-tr>
-              </b-thead>
-              <b-tbody>
-                <b-tr>
-                  <b-td>#124781</b-td>
-                  <b-td>25/11/2018</b-td>
-                  <b-td>{{ currency }}321</b-td>
-                  <b-td>
-                    <b-badge variant="success"> Approved </b-badge>
-                  </b-td>
-                  <b-td class="text-end">
-                    <b-dropdown
-                      :variant="null"
-                      class="d-inline-block"
-                      menu-class="dropdown-menu-end"
-                      toggle-class="p-0 m-0"
-                    >
-                      <template #button-content>
-                        <i class="las la-ellipsis-v fs-20 text-muted"></i>
-                      </template>
-                      <b-dropdown-item>Create Project</b-dropdown-item>
-                      <b-dropdown-item>Open Project</b-dropdown-item>
-                      <b-dropdown-item>Tasks Details</b-dropdown-item>
-                    </b-dropdown>
-                  </b-td>
-                </b-tr>
-                <b-tr>
-                  <b-td>#542136</b-td>
-                  <b-td>19/11/2018</b-td>
-                  <b-td>{{ currency }}227</b-td>
-                  <b-td><b-badge variant="success"> Approved </b-badge></b-td>
-                  <b-td class="text-end">
-                    <b-dropdown
-                      :variant="null"
-                      class="d-inline-block"
-                      menu-class="dropdown-menu-end"
-                      toggle-class="p-0 m-0"
-                    >
-                      <template #button-content>
-                        <i class="las la-ellipsis-v fs-20 text-muted"></i>
-                      </template>
-                      <b-dropdown-item>Create Project</b-dropdown-item>
-                      <b-dropdown-item>Open Project</b-dropdown-item>
-                      <b-dropdown-item>Tasks Details</b-dropdown-item>
-                    </b-dropdown>
-                  </b-td>
-                </b-tr>
-                <b-tr>
-                  <b-td>#234578</b-td>
-                  <b-td>11/10/2018</b-td>
-                  <b-td>{{ currency }}442</b-td>
-                  <b-td>
-                    <b-badge variant="danger"> Rejected </b-badge>
-                  </b-td>
-                  <b-td class="text-end">
-                    <b-dropdown
-                      :variant="null"
-                      class="d-inline-block"
-                      menu-class="dropdown-menu-end"
-                      toggle-class="p-0 m-0"
-                    >
-                      <template #button-content>
-                        <i class="las la-ellipsis-v fs-20 text-muted"></i>
-                      </template>
-                      <b-dropdown-item>Create Project</b-dropdown-item>
-                      <b-dropdown-item>Open Project</b-dropdown-item>
-                      <b-dropdown-item>Tasks Details</b-dropdown-item>
-                    </b-dropdown>
-                  </b-td>
-                </b-tr>
-                <b-tr>
-                  <b-td>#951357</b-td>
-                  <b-td>03/12/2018</b-td>
-                  <b-td>{{ currency }}625</b-td>
-                  <b-td><b-badge variant="success"> Approved </b-badge></b-td>
-                  <b-td class="text-end">
-                    <b-dropdown
-                      :variant="null"
-                      class="d-inline-block"
-                      menu-class="dropdown-menu-end"
-                      toggle-class="p-0 m-0"
-                    >
-                      <template #button-content>
-                        <i class="las la-ellipsis-v fs-20 text-muted"></i>
-                      </template>
-                      <b-dropdown-item>Create Project</b-dropdown-item>
-                      <b-dropdown-item>Open Project</b-dropdown-item>
-                      <b-dropdown-item>Tasks Details</b-dropdown-item>
-                    </b-dropdown>
-                  </b-td>
-                </b-tr>
-              </b-tbody>
-            </b-table-simple>
+            <CustomTable
+              bordered
+              :headers="['Transaction ID', 'Date', 'Price', 'Order Status']"
+              :rows="[
+                {
+                  cells: [
+                    '#124781',
+                    '25/11/2018',
+                    '321',
+                    { type: 'badge', variant: 'success', text: 'Approved' },
+                  ],
+                },
+                {
+                  cells: [
+                    '#542136',
+                    '19/11/2018',
+                    '227',
+                    { type: 'badge', variant: 'success', text: 'Approved' },
+                  ],
+                },
+                {
+                  cells: [
+                    '#234578',
+                    '11/10/2018',
+                    '442',
+                    { type: 'badge', variant: 'danger', text: 'Rejected' },
+                  ],
+                },
+                {
+                  cells: [
+                    '#951357',
+                    '03/12/2018',
+                    '625',
+                    { type: 'badge', variant: 'success', text: 'Approved' },
+                  ],
+                },
+              ]"
+              :actions="{
+                view: (row) => handleView(row),
+                edit: (row) => handleEdit(row),
+              }"
+            />
           </b-card-body>
         </b-card>
       </b-col>
     </b-row>
 
+    <!-- Segunda linha de tabelas -->
     <b-row class="justify-content-center">
       <b-col md="6" lg="6">
         <b-card no-body>
@@ -266,98 +128,44 @@
             </b-row>
           </b-card-header>
           <b-card-body class="pt-0">
-            <b-table-simple responsive striped class="mb-0 table-centered">
-              <b-thead class="table-light">
-                <b-tr>
-                  <b-th>Customer</b-th>
-                  <b-th>Email</b-th>
-                  <b-th>Contact No</b-th>
-                  <b-th class="text-end">Action</b-th>
-                </b-tr>
-              </b-thead>
-              <b-tbody>
-                <b-tr>
-                  <b-td
-                    ><img
-                      :src="avatar3"
-                      alt=""
-                      class="rounded-circle thumb-md me-1 d-inline"
-                    />
-                    Aaron Poulin</b-td
-                  >
-                  <b-td>Aaron@example.com</b-td>
-                  <b-td>+21 21547896</b-td>
-                  <b-td class="text-end">
-                    <a href="#"
-                      ><i class="las la-pen text-secondary font-16"></i></a
-                    >{{ " " }}
-                    <a href="#"
-                      ><i class="las la-trash-alt text-secondary font-16"></i
-                    ></a>
-                  </b-td>
-                </b-tr>
-                <b-tr>
-                  <b-td
-                    ><img
-                      :src="avatar4"
-                      alt=""
-                      class="rounded-circle thumb-md me-1 d-inline"
-                    />
-                    Richard Ali</b-td
-                  >
-                  <b-td>Richard@example.com</b-td>
-                  <b-td>+41 21547896</b-td>
-                  <b-td class="text-end">
-                    <a href="#"
-                      ><i class="las la-pen text-secondary font-16"></i></a
-                    >{{ " " }}
-                    <a href="#"
-                      ><i class="las la-trash-alt text-secondary font-16"></i
-                    ></a>
-                  </b-td>
-                </b-tr>
-                <b-tr>
-                  <b-td
-                    ><img
-                      :src="avatar5"
-                      alt=""
-                      class="rounded-circle thumb-md me-1 d-inline"
-                    />
-                    Juan Clark</b-td
-                  >
-                  <b-td>Juan@example.com</b-td>
-                  <b-td>+65 21547896</b-td>
-                  <b-td class="text-end">
-                    <a href="#"
-                      ><i class="las la-pen text-secondary font-16"></i></a
-                    >{{ " " }}
-                    <a href="#"
-                      ><i class="las la-trash-alt text-secondary font-16"></i
-                    ></a>
-                  </b-td>
-                </b-tr>
-                <b-tr>
-                  <b-td
-                    ><img
-                      :src="avatar6"
-                      alt=""
-                      class="rounded-circle thumb-md me-1 d-inline"
-                    />
-                    Albert Hull</b-td
-                  >
-                  <b-td>Albert@example.com</b-td>
-                  <b-td>+88 21547896</b-td>
-                  <b-td class="text-end">
-                    <a href="#"
-                      ><i class="las la-pen text-secondary font-16"></i></a
-                    >{{ " " }}
-                    <a href="#"
-                      ><i class="las la-trash-alt text-secondary font-16"></i
-                    ></a>
-                  </b-td>
-                </b-tr>
-              </b-tbody>
-            </b-table-simple>
+            <CustomTable
+              striped
+              :headers="['Customer', 'Email', 'Contact No']"
+              :rows="[
+                {
+                  cells: [
+                    { type: 'image', src: avatar3, alt: 'Aaron Poulin', text: 'Aaron Poulin' },
+                    'Aaron@example.com',
+                    '+21 21547896',
+                  ],
+                },
+                {
+                  cells: [
+                    { type: 'image', src: avatar4, alt: 'Richard Ali', text: 'Richard Ali' },
+                    'Richard@example.com',
+                    '+41 21547896',
+                  ],
+                },
+                {
+                  cells: [
+                    { type: 'image', src: avatar5, alt: 'Juan Clark', text: 'Juan Clark' },
+                    'Juan@example.com',
+                    '+65 21547896',
+                  ],
+                },
+                {
+                  cells: [
+                    { type: 'image', src: avatar6, alt: 'Albert Hull', text: 'Albert Hull' },
+                    'Albert@example.com',
+                    '+88 21547896',
+                  ],
+                },
+              ]"
+              :actions="{
+                view: (row) => handleView(row),
+                edit: (row) => handleEdit(row),
+              }"
+            />
           </b-card-body>
         </b-card>
       </b-col>
@@ -371,88 +179,61 @@
             </b-row>
           </b-card-header>
           <b-card-body class="pt-0">
-            <b-table-simple responsive class="mb-0">
-              <b-thead class="table-light">
-                <b-tr>
-                  <b-th>#</b-th>
-                  <b-th>Name</b-th>
-                  <b-th>Email</b-th>
-                  <b-th>Access</b-th>
-                </b-tr>
-              </b-thead>
-              <b-tbody>
-                <b-tr>
-                  <b-th scope="row">1</b-th>
-                  <b-td>Mark</b-td>
-                  <b-td>XYZ@Example.com</b-td>
-                  <b-td
-                    ><b-badge
-                      :variant="null"
-                      class="border border-success text-success"
-                    >
-                      Business
-                    </b-badge></b-td
-                  >
-                </b-tr>
-                <b-tr>
-                  <b-th scope="row">2</b-th>
-                  <b-td>Jacob</b-td>
-                  <b-td>XYZ@Example.com</b-td>
-                  <b-td
-                    ><b-badge
-                      :variant="null"
-                      class="border border-warning text-warning"
-                    >
-                      Personal
-                    </b-badge></b-td
-                  >
-                </b-tr>
-                <b-tr>
-                  <b-th scope="row">3</b-th>
-                  <b-td>Larry</b-td>
-                  <b-td>XYZ@Example.com</b-td>
-                  <b-td
-                    ><b-badge
-                      :variant="null"
-                      class="border border-danger text-danger"
-                    >
-                      Disabled
-                    </b-badge></b-td
-                  >
-                </b-tr>
-                <b-tr>
-                  <b-th scope="row">4</b-th>
-                  <b-td>Mark</b-td>
-                  <b-td>XYZ@Example.com</b-td>
-                  <b-td
-                    ><b-badge
-                      :variant="null"
-                      class="border border-success text-success"
-                    >
-                      Business
-                    </b-badge></b-td
-                  >
-                </b-tr>
-                <b-tr>
-                  <b-th scope="row">5</b-th>
-                  <b-td>Jacob</b-td>
-                  <b-td>XYZ@Example.com</b-td>
-                  <b-td
-                    ><b-badge
-                      :variant="null"
-                      class="border border-warning text-warning"
-                    >
-                      Personal
-                    </b-badge></b-td
-                  >
-                </b-tr>
-              </b-tbody>
-            </b-table-simple>
+            <CustomTable
+              :headers="['#', 'Name', 'Email', 'Access']"
+              :rows="[
+                {
+                  cells: [
+                    '1',
+                    'Mark',
+                    'XYZ@Example.com',
+                    { type: 'badge', variant: 'success', text: 'Business' },
+                  ],
+                },
+                {
+                  cells: [
+                    '2',
+                    'Jacob',
+                    'XYZ@Example.com',
+                    { type: 'badge', variant: 'warning', text: 'Personal' },
+                  ],
+                },
+                {
+                  cells: [
+                    '3',
+                    'Larry',
+                    'XYZ@Example.com',
+                    { type: 'badge', variant: 'danger', text: 'Disabled' },
+                  ],
+                },
+                {
+                  cells: [
+                    '4',
+                    'Mark',
+                    'XYZ@Example.com',
+                    { type: 'badge', variant: 'success', text: 'Business' },
+                  ],
+                },
+                {
+                  cells: [
+                    '5',
+                    'Jacob',
+                    'XYZ@Example.com',
+                    { type: 'badge', variant: 'warning', text: 'Personal' },
+                  ],
+                },
+              ]"
+              :actions="{
+                view: (row) => handleView(row),
+                edit: (row) => handleEdit(row),
+              }"
+            />
           </b-card-body>
         </b-card>
       </b-col>
     </b-row>
 
+    <!-- Terceira linha de tabelas -->
     <b-row class="justify-content-center">
       <b-col md="6" lg="6">
         <b-card no-body>
@@ -464,35 +245,19 @@
             </b-row>
           </b-card-header>
           <b-card-body class="pt-0">
-            <b-table-simple responsive hover class="mb-0">
-              <b-thead class="table-light">
-                <b-tr>
-                  <b-th>#</b-th>
-                  <b-th>First Name</b-th>
-                  <b-th>Last Name</b-th>
-                  <b-th>Username</b-th>
-                </b-tr>
-              </b-thead>
-              <b-tbody>
-                <b-tr>
-                  <b-th scope="row">1</b-th>
-                  <b-td>Mark</b-td>
-                  <b-td>Otto</b-td>
-                  <b-td>@mdo</b-td>
-                </b-tr>
-                <b-tr>
-                  <b-th scope="row">2</b-th>
-                  <b-td>Jacob</b-td>
-                  <b-td>Thornton</b-td>
-                  <b-td>@fat</b-td>
-                </b-tr>
-                <b-tr>
-                  <b-th scope="row">3</b-th>
-                  <b-td colspan="2">Larry the Bird</b-td>
-                  <b-td>@twitter</b-td>
-                </b-tr>
-              </b-tbody>
-            </b-table-simple>
+            <CustomTable
+              hover
+              :headers="['#', 'First Name', 'Last Name', 'Username']"
+              :rows="[
+                { cells: ['1', 'Mark', 'Otto', '@mdo'] },
+                { cells: ['2', 'Jacob', 'Thornton', '@fat'] },
+                { cells: ['3', 'Larry the Bird', '', '@twitter'] },
+              ]"
+              :actions="{
+                view: (row) => handleView(row),
+                edit: (row) => handleEdit(row),
+              }"
+            />
           </b-card-body>
         </b-card>
       </b-col>
@@ -506,41 +271,25 @@
             </b-row>
           </b-card-header>
           <b-card-body class="pt-0">
-            <b-table-simple responsive dark class="mb-0">
-              <b-thead>
-                <b-tr>
-                  <b-th class="rounded-bottom-0">#</b-th>
-                  <b-th>First Name</b-th>
-                  <b-th>Last Name</b-th>
-                  <b-th class="rounded-bottom-0">Username</b-th>
-                </b-tr>
-              </b-thead>
-              <b-tbody>
-                <b-tr>
-                  <b-th scope="row">1</b-th>
-                  <b-td>Mark</b-td>
-                  <b-td>Otto</b-td>
-                  <b-td>@mdo</b-td>
-                </b-tr>
-                <b-tr>
-                  <b-th scope="row">2</b-th>
-                  <b-td>Jacob</b-td>
-                  <b-td>Thornton</b-td>
-                  <b-td>@fat</b-td>
-                </b-tr>
-                <b-tr>
-                  <b-th scope="row">3</b-th>
-                  <b-td>Larry</b-td>
-                  <b-td>the Bird</b-td>
-                  <b-td>@twitter</b-td>
-                </b-tr>
-              </b-tbody>
-            </b-table-simple>
+            <CustomTable
+              dark
+              :headers="['#', 'First Name', 'Last Name', 'Username']"
+              :rows="[
+                { cells: ['1', 'Mark', 'Otto', '@mdo'] },
+                { cells: ['2', 'Jacob', 'Thornton', '@fat'] },
+                { cells: ['3', 'Larry', 'the Bird', '@twitter'] },
+              ]"
+              :actions="{
+                view: (row) => handleView(row),
+                edit: (row) => handleEdit(row),
+              }"
+            />
           </b-card-body>
         </b-card>
       </b-col>
     </b-row>
 
+    <!-- Quarta linha de tabelas -->
     <b-row class="justify-content-center">
       <b-col md="6" lg="6">
         <b-card no-body>
@@ -552,78 +301,25 @@
             </b-row>
           </b-card-header>
           <b-card-body class="pt-0">
-            <b-table-simple responsive="sm" class="mb-0">
-              <b-thead class="table-light">
-                <b-tr>
-                  <b-th scope="col">#</b-th>
-                  <b-th scope="col">First Name</b-th>
-                  <b-th scope="col">Last Name</b-th>
-                  <b-th scope="col">Username</b-th>
-                </b-tr>
-              </b-thead>
-              <b-tbody>
-                <b-tr class="table-primary">
-                  <b-th scope="row">1</b-th>
-                  <b-td class="">Mark</b-td>
-                  <b-td class="">Otto</b-td>
-                  <b-td class="">@mdo</b-td>
-                </b-tr>
-                <b-tr class="">
-                  <b-th scope="row">2</b-th>
-                  <b-td>Jacob</b-td>
-                  <b-td>Thornton</b-td>
-                  <b-td>@fat</b-td>
-                </b-tr>
-                <b-tr class="table-secondary">
-                  <b-th scope="row">3</b-th>
-                  <b-td class="">Larry</b-td>
-                  <b-td class="">the Bird</b-td>
-                  <b-td class="">@twitter</b-td>
-                </b-tr>
-                <b-tr class="">
-                  <b-th scope="row">4</b-th>
-                  <b-td>Mark</b-td>
-                  <b-td>Otto</b-td>
-                  <b-td>@mdo</b-td>
-                </b-tr>
-                <b-tr class="table-success">
-                  <b-th scope="row">5</b-th>
-                  <b-td>Jacob</b-td>
-                  <b-td>Thornton</b-td>
-                  <b-td>@fat</b-td>
-                </b-tr>
-                <b-tr class="">
-                  <b-th scope="row">6</b-th>
-                  <b-td>Larry</b-td>
-                  <b-td>the Bird</b-td>
-                  <b-td>@twitter</b-td>
-                </b-tr>
-                <b-tr class="table-info">
-                  <b-th scope="row">7</b-th>
-                  <b-td>Jacob</b-td>
-                  <b-td>Thornton</b-td>
-                  <b-td>@fat</b-td>
-                </b-tr>
-                <b-tr class="">
-                  <b-th scope="row">8</b-th>
-                  <b-td>Larry</b-td>
-                  <b-td>the Bird</b-td>
-                  <b-td>@twitter</b-td>
-                </b-tr>
-                <b-tr class="table-warning">
-                  <b-th scope="row">9</b-th>
-                  <b-td>Jacob</b-td>
-                  <b-td>Thornton</b-td>
-                  <b-td>@fat</b-td>
-                </b-tr>
-                <b-tr class="">
-                  <b-th scope="row">10</b-th>
-                  <b-td>Larry</b-td>
-                  <b-td>the Bird</b-td>
-                  <b-td>@twitter</b-td>
-                </b-tr>
-              </b-tbody>
-            </b-table-simple>
+            <CustomTable
+              :headers="['#', 'First Name', 'Last Name', 'Username']"
+              :rows="[
+                { class: 'table-primary', cells: ['1', 'Mark', 'Otto', '@mdo'] },
+                { cells: ['2', 'Jacob', 'Thornton', '@fat'] },
+                { class: 'table-secondary', cells: ['3', 'Larry', 'the Bird', '@twitter'] },
+                { cells: ['4', 'Mark', 'Otto', '@mdo'] },
+                { class: 'table-success', cells: ['5', 'Jacob', 'Thornton', '@fat'] },
+                { cells: ['6', 'Larry', 'the Bird', '@twitter'] },
+                { class: 'table-info', cells: ['7', 'Jacob', 'Thornton', '@fat'] },
+                { cells: ['8', 'Larry', 'the Bird', '@twitter'] },
+                { class: 'table-warning', cells: ['9', 'Jacob', 'Thornton', '@fat'] },
+                { cells: ['10', 'Larry', 'the Bird', '@twitter'] },
+              ]"
+              :actions="{
+                view: (row) => handleView(row),
+                edit: (row) => handleEdit(row),
+              }"
+            />
           </b-card-body>
         </b-card>
       </b-col>
@@ -637,39 +333,18 @@
             </b-row>
           </b-card-header>
           <b-card-body class="pt-0">
-            <b-table-simple responsive="sm" class="mb-0">
-              <caption>
-                List of users
-              </caption>
-              <b-thead class="table-light">
-                <b-tr>
-                  <b-th scope="col">#</b-th>
-                  <b-th scope="col">First Name</b-th>
-                  <b-th scope="col">Last Name</b-th>
-                  <b-th scope="col">Username</b-th>
-                </b-tr>
-              </b-thead>
-              <b-tbody>
-                <b-tr>
-                  <b-th scope="row">1</b-th>
-                  <b-td>Mark</b-td>
-                  <b-td>Otto</b-td>
-                  <b-td>@mdo</b-td>
-                </b-tr>
-                <b-tr>
-                  <b-th scope="row">2</b-th>
-                  <b-td>Jacob</b-td>
-                  <b-td>Thornton</b-td>
-                  <b-td>@fat</b-td>
-                </b-tr>
-                <b-tr>
-                  <b-th scope="row">3</b-th>
-                  <b-td>Larry</b-td>
-                  <b-td>the Bird</b-td>
-                  <b-td>@twitter</b-td>
-                </b-tr>
-              </b-tbody>
-            </b-table-simple>
+            <CustomTable
+              :headers="['#', 'First Name', 'Last Name', 'Username']"
+              :rows="[
+                { cells: ['1', 'Mark', 'Otto', '@mdo'] },
+                { cells: ['2', 'Jacob', 'Thornton', '@fat'] },
+                { cells: ['3', 'Larry', 'the Bird', '@twitter'] },
+              ]"
+              :actions="{
+                view: (row) => handleView(row),
+                edit: (row) => handleEdit(row),
+              }"
+            />
           </b-card-body>
         </b-card>
 
@@ -682,43 +357,30 @@
             </b-row>
           </b-card-header>
           <b-card-body class="pt-0">
-            <b-table-simple responsive="sm" small class="mb-0">
-              <b-thead class="table-light">
-                <b-tr>
-                  <b-th scope="col">#</b-th>
-                  <b-th scope="col">First Name</b-th>
-                  <b-th scope="col">Last Name</b-th>
-                  <b-th scope="col">Username</b-th>
-                </b-tr>
-              </b-thead>
-              <b-tbody>
-                <b-tr>
-                  <b-th scope="row">1</b-th>
-                  <b-td>Mark</b-td>
-                  <b-td>Otto</b-td>
-                  <b-td>@mdo</b-td>
-                </b-tr>
-                <b-tr>
-                  <b-th scope="row">2</b-th>
-                  <b-td>Jacob</b-td>
-                  <b-td>Thornton</b-td>
-                  <b-td>@fat</b-td>
-                </b-tr>
-                <b-tr>
-                  <b-th scope="row">3</b-th>
-                  <b-td colspan="2">Larry the Bird</b-td>
-                  <b-td>@twitter</b-td>
-                </b-tr>
-              </b-tbody>
-            </b-table-simple>
+            <CustomTable
+              small
+              :headers="['#', 'First Name', 'Last Name', 'Username']"
+              :rows="[
+                { cells: ['1', 'Mark', 'Otto', '@mdo'] },
+                { cells: ['2', 'Jacob', 'Thornton', '@fat'] },
+                { cells: ['3', 'Larry the Bird', '', '@twitter'] },
+              ]"
+              :actions="{
+                view: (row) => handleView(row),
+                edit: (row) => handleEdit(row),
+              }"
+            />
           </b-card-body>
         </b-card>
       </b-col>
     </b-row>
   </DefaultLayout>
 </template>
+
 <script setup lang="ts">
-import { currency } from "@/helpers/constants";
+import { ref } from "vue";
+import CustomTable from "@/components/tables/basic.vue";
+import DefaultLayout from "@/layouts/DefaultLayout.vue";
 
 import chatgpt from "@/assets/images/logos/lang-logo/chatgpt.png";
 import nextjs from "@/assets/images/logos/lang-logo/nextjs.png";
@@ -730,5 +392,16 @@ import avatar4 from "@/assets/images/users/avatar-4.jpg";
 import avatar5 from "@/assets/images/users/avatar-5.jpg";
 import avatar6 from "@/assets/images/users/avatar-6.jpg";
 
-import DefaultLayout from "@/layouts/DefaultLayout.vue";
+// Funções de exemplo para ações
+const handleView = (row: any) => {
+  console.log("View row:", row);
+};
+
+const handleEdit = (row: any) => {
+  console.log("Edit row:", row);
+};
+
+const handleDelete = (row: any) => {
+  console.log("Delete row:", row);
+};
 </script>

@@ -12,7 +12,8 @@
                   >Text</label
                 >
                 <b-col sm="10">
-                  <Input
+                  <b-form-input
+                    type="text"
                     id="example-text-input"
                     value="Artisanal kale"
                     placeholder="Artisanal kale"
@@ -26,7 +27,7 @@
                   >Email</label
                 >
                 <b-col sm="10">
-                  <Input
+                  <b-form-input
                     type="email"
                     id="example-email-input"
                     value="bootstrap@example.com"
@@ -41,7 +42,7 @@
                   >Telephone</label
                 >
                 <b-col sm="10">
-                  <Input
+                  <b-form-input
                     type="tel"
                     id="example-tel-input"
                     value="1-(555)-555-5555"
@@ -56,7 +57,7 @@
                   >Password</label
                 >
                 <b-col sm="10">
-                  <Input
+                  <b-form-input
                     type="password"
                     id="example-password-input"
                     value="hunter2"
@@ -70,7 +71,7 @@
                   >Number</label
                 >
                 <b-col sm="10">
-                  <Input
+                  <b-form-input
                     type="number"
                     id="example-number-input"
                     value="42"
@@ -85,7 +86,7 @@
                   >Date and time</label
                 >
                 <b-col sm="10">
-                  <Input
+                  <b-form-input
                     type="datetime-local"
                     id="example-datetime-local-input"
                     value="2011-08-19T13:45:00"
@@ -100,10 +101,11 @@
                   >Color</label
                 >
                 <b-col sm="10">
-                  <Input
+                  <b-form-input
                     type="color"
                     id="exampleColorInput"
                     value="#0b51b7"
+                    title="Choose your color"
                   />
                 </b-col>
               </b-row>
@@ -112,16 +114,12 @@
                   >Select</label
                 >
                 <b-col sm="10">
-                  <Select
-                    id="required"
-                    model-value="select"
-                    :options="[
-                      { value: 'select', text: 'Open this select menu' },
-                      { value: '1', text: 'One' },
-                      { value: '2', text: 'Two' },
-                      { value: '3', text: 'Three' }
-                    ]"
-                  />
+                  <b-form-select model-value="select" id="required">
+                    <option value="select">Open this select menu</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </b-form-select>
                 </b-col>
               </b-row>
               <b-row class="mb-3">
@@ -131,7 +129,7 @@
                   >Large</label
                 >
                 <b-col sm="10">
-                  <Input
+                  <b-form-input
                     type="text"
                     id="example-text-input-lg"
                     size="lg"
@@ -146,7 +144,7 @@
                   >Small</label
                 >
                 <b-col sm="10">
-                  <Input
+                  <b-form-input
                     type="text"
                     id="example-text-input-sm"
                     size="sm"
@@ -164,7 +162,7 @@
                   >Search</label
                 >
                 <b-col sm="10">
-                  <Input
+                  <b-form-input
                     type="search"
                     id="example-search-input"
                     value="How do I shoot web"
@@ -179,7 +177,7 @@
                   >URL</label
                 >
                 <b-col sm="10">
-                  <Input
+                  <b-form-input
                     type="url"
                     id="example-url-input"
                     value="https://getbootstrap.com"
@@ -194,7 +192,7 @@
                   >Date</label
                 >
                 <b-col sm="10">
-                  <Input
+                  <b-form-input
                     type="date"
                     id="example-date-input"
                     value="2011-08-19"
@@ -209,7 +207,7 @@
                   >Month</label
                 >
                 <b-col sm="10">
-                  <Input
+                  <b-form-input
                     type="month"
                     id="example-month-input"
                     value="2011-08"
@@ -224,7 +222,7 @@
                   >Week</label
                 >
                 <b-col sm="10">
-                  <Input
+                  <b-form-input
                     type="week"
                     id="example-week-input"
                     value="2011-W33"
@@ -239,7 +237,7 @@
                   >Time</label
                 >
                 <b-col sm="10">
-                  <Input
+                  <b-form-input
                     type="time"
                     id="example-time-input"
                     value="13:45:00"
@@ -254,7 +252,7 @@
                   >Email</label
                 >
                 <b-col sm="10">
-                  <Input
+                  <b-form-input
                     type="email"
                     id="inputHorizontalWarning"
                     placeholder="name@example.com"
@@ -271,7 +269,7 @@
                   >Email</label
                 >
                 <b-col sm="10">
-                  <Input
+                  <b-form-input
                     type="email"
                     id="inputHorizontalSuccess"
                     placeholder="name@example.com"
@@ -289,7 +287,7 @@
                   >Email</label
                 >
                 <b-col sm="10">
-                  <Input
+                  <b-form-input
                     type="email"
                     id="inputHorizontalDnger"
                     placeholder="name@example.com"
@@ -315,7 +313,7 @@
               label-for="exampleInputEmail1"
               class="mb-3"
             >
-              <Input
+              <b-form-input
                 type="email"
                 placeholder="Enter email"
                 id="exampleInputEmail1"
@@ -330,7 +328,7 @@
               label-for="exampleInputPassword1"
               class="mb-3"
             >
-              <Input
+              <b-form-input
                 type="password"
                 placeholder="Password"
                 id="exampleInputPassword1"
@@ -338,9 +336,9 @@
             </b-form-group>
 
             <b-form-group class="mb-3">
-              <Checkbox id="flexCheckDefaultdemo" name="checkbox-1">
+              <b-form-checkbox id="flexCheckDefaultdemo" name="checkbox-1">
                 Check me out
-              </Checkbox>
+              </b-form-checkbox>
             </b-form-group>
 
             <b-button type="submit" variant="primary">Submit</b-button>
@@ -357,7 +355,7 @@
                 >Email</label
               >
               <b-col sm="10">
-                <Input
+                <b-form-input
                   type="email"
                   id="horizontalInput1"
                   placeholder="Enter Email"
@@ -370,7 +368,7 @@
                 >Password</label
               >
               <b-col sm="10">
-                <Input
+                <b-form-input
                   type="password"
                   id="horizontalInput2"
                   placeholder="Password"
@@ -380,13 +378,13 @@
 
             <b-row>
               <b-col sm="10" class="ms-auto">
-                <Checkbox
+                <b-form-checkbox
                   id="flexCheckDefaultdemo2"
                   name="checkbox"
                   class="mb-3"
                 >
                   Remember me
-                </Checkbox>
+                </b-form-checkbox>
               </b-col>
             </b-row>
             <b-row>
@@ -408,7 +406,7 @@
             <b-row>
               <b-col md="4">
                 <b-form-group label="Name" label-for="username" class="mb-3">
-                  <Input type="text" id="username" />
+                  <b-form-input type="text" id="username" required />
                 </b-form-group>
               </b-col>
               <b-col md="4">
@@ -417,19 +415,19 @@
                   label-for="useremail"
                   class="mb-3"
                 >
-                  <Input type="email" id="useremail" />
+                  <b-form-input type="email" id="useremail" required />
                 </b-form-group>
               </b-col>
               <b-col md="4">
                 <b-form-group label="Subject" label-for="subject" class="mb-3">
-                  <Input type="text" id="subject" />
+                  <b-form-input type="text" id="subject" required />
                 </b-form-group>
               </b-col>
             </b-row>
             <b-row>
               <b-col md="12">
                 <b-form-group label="Message" label-for="message" class="mb-3">
-                  <TextArea rows="5" id="message" />
+                  <b-form-textarea type="textarea" rows="5" id="message" />
                 </b-form-group>
               </b-col>
             </b-row>
@@ -446,20 +444,19 @@
         <UIComponentCard title="Inline Form">
           <b-form class="row align-items-center">
             <div class="col-auto">
-              <InputGroup prepend-text="@" placeholder="Username" />
+              <b-input-group>
+                <b-input-group-text>@</b-input-group-text>
+                <b-form-input type="text" placeholder="Username" />
+              </b-input-group>
             </div>
             <div class="col-auto">
               <b-input-group>
-                <Select
-                  model-value="select"
-                  id="required"
-                  :options="[
-                    { value: 'select', text: 'Choose...' },
-                    { value: '1', text: 'One' },
-                    { value: '2', text: 'Two' },
-                    { value: '3', text: 'Three' }
-                  ]"
-                />
+                <b-form-select model-value="select" id="required">
+                  <option value="select">Choose...</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </b-form-select>
               </b-input-group>
             </div>
             <div class="col-auto">
@@ -470,13 +467,13 @@
 
         <UIComponentCard title="Input Size">
           <b-form>
-            <Input
+            <b-form-input
               type="text"
               class="mb-2"
               size="lg"
               placeholder=".form-control-lg"
             />
-            <Input
+            <b-form-input
               type="text"
               size="sm"
               placeholder=".form-control-sm"
@@ -487,11 +484,11 @@
         <UIComponentCard title="File Browser">
           <b-input-group class="mb-3">
             <b-input-group-text>Upload</b-input-group-text>
-            <FileInput />
+            <b-form-file />
           </b-input-group>
 
           <b-input-group class="mb-3">
-            <FileInput />
+            <b-form-file />
             <b-input-group-text>Upload</b-input-group-text>
           </b-input-group>
 
@@ -499,11 +496,11 @@
             <b-input-group-text class="btn btn-outline-secondary"
               >Button</b-input-group-text
             >
-            <FileInput />
+            <b-form-file />
           </b-input-group>
 
           <b-input-group>
-            <FileInput />
+            <b-form-file />
             <b-input-group-text class="btn btn-outline-secondary"
               >Button</b-input-group-text
             >
@@ -518,7 +515,7 @@
               label-for="exampleFormControlInput1"
               class="mb-3"
             >
-              <Input
+              <b-form-input
                 type="email"
                 id="exampleFormControlInput1"
                 placeholder="name@example.com"
@@ -530,17 +527,13 @@
               label-for="exampleFormControlSelect1"
               class="mb-3"
             >
-              <Select
-                model-value="1"
-                id="exampleFormControlSelect1"
-                :options="[
-                  { value: '1', text: '1' },
-                  { value: '2', text: '2' },
-                  { value: '3', text: '3' },
-                  { value: '4', text: '4' },
-                  { value: '5', text: '5' }
-                ]"
-              />
+              <b-form-select model-value="1" id="exampleFormControlSelect1">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </b-form-select>
             </b-form-group>
 
             <b-form-group
@@ -548,25 +541,25 @@
               label-for="exampleFormControlSelect2"
               class="mb-3"
             >
-              <Select
+              <b-form-select
                 model-value="1"
                 id="exampleFormControlSelect2"
-                :options="[
-                  { value: '1', text: '1' },
-                  { value: '2', text: '2' },
-                  { value: '3', text: '3' },
-                  { value: '4', text: '4' },
-                  { value: '5', text: '5' }
-                ]"
-                :multiple="true"
-              />
+                multiple
+              >
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </b-form-select>
             </b-form-group>
 
             <b-form-group
               label="Example textarea"
               label-for="exampleFormControlTextarea1"
             >
-              <TextArea
+              <b-form-textarea
+                type="textarea"
                 rows="3"
                 id="exampleFormControlTextarea1"
               />
@@ -576,17 +569,18 @@
 
         <UIComponentCard title="Range">
           <b-form-group label="Example range" label-for="customRange1">
-            <Range id="customRange1" />
+            <b-form-input type="range" id="customRange1" />
           </b-form-group>
           <b-form-group label="Min and max" label-for="customRange2">
-            <Range id="customRange2" :min="0" :max="5" />
+            <b-form-input id="customRange2" min="0" max="5" type="range" />
           </b-form-group>
           <b-form-group label="Steps" label-for="customRange3">
-            <Range
+            <b-form-input
               id="customRange3"
-              :min="0"
-              :max="5"
-              :step="0.5"
+              min="0"
+              max="5"
+              step="0.5"
+              type="range"
             />
           </b-form-group>
         </UIComponentCard>
@@ -594,38 +588,38 @@
         <UIComponentCard title="Switches">
           <b-row>
             <b-col lg="4">
-              <Checkbox switch>Default switch</Checkbox>
-              <Checkbox switch disabled>Disabled switch</Checkbox>
+              <b-form-checkbox switch>Default switch</b-form-checkbox>
+              <b-form-checkbox switch disabled>Disabled switch</b-form-checkbox>
             </b-col>
             <b-col lg="4">
               <div class="form-switch-secondary">
-                <Checkbox switch checked>Secondary</Checkbox>
+                <b-form-checkbox switch checked>Secondary</b-form-checkbox>
               </div>
               <div class="form-switch-success">
-                <Checkbox switch checked>Success</Checkbox>
+                <b-form-checkbox switch checked>Success</b-form-checkbox>
               </div>
               <div class="form-switch-warning">
-                <Checkbox switch checked>Warning</Checkbox>
+                <b-form-checkbox switch checked>Warning</b-form-checkbox>
               </div>
               <div class="form-switch-info">
-                <Checkbox switch checked>Info</Checkbox>
+                <b-form-checkbox switch checked>Info</b-form-checkbox>
               </div>
             </b-col>
             <b-col lg="4">
               <div class="form-switch-danger">
-                <Checkbox switch checked>Danger</Checkbox>
+                <b-form-checkbox switch checked>Danger</b-form-checkbox>
               </div>
 
               <div class="form-switch-dark">
-                <Checkbox switch checked>Dark</Checkbox>
+                <b-form-checkbox switch checked>Dark</b-form-checkbox>
               </div>
 
               <div class="form-switch-purple">
-                <Checkbox switch checked>Purple</Checkbox>
+                <b-form-checkbox switch checked>Purple</b-form-checkbox>
               </div>
 
               <div class="form-switch-pink">
-                <Checkbox switch checked>Pink</Checkbox>
+                <b-form-checkbox switch checked>Pink</b-form-checkbox>
               </div>
             </b-col>
           </b-row>
@@ -640,11 +634,11 @@
             <b-row class="mb-3">
               <label class="col-md-3 my-2 control-label">Checkboxes</label>
               <b-col md="9">
-                <Checkbox>Default checkbox</Checkbox>
-                <Checkbox checked>Checked checkbox</Checkbox>
-                <Checkbox disabled>Disabled checkbox</Checkbox>
-                <Checkbox checked disabled
-                  >Disabled checked checkbox</Checkbox
+                <b-form-checkbox>Default checkbox</b-form-checkbox>
+                <b-form-checkbox checked>Checked checkbox</b-form-checkbox>
+                <b-form-checkbox disabled>Disabled checkbox</b-form-checkbox>
+                <b-form-checkbox checked disabled
+                  >Disabled checked checkbox</b-form-checkbox
                 >
               </b-col>
             </b-row>
@@ -654,23 +648,23 @@
                 >Inline Checkboxes</label
               >
               <b-col md="9">
-                <Checkbox inline>HTML5</Checkbox> {{ " " }}
-                <Checkbox inline>Css3</Checkbox> {{ " " }}
-                <Checkbox inline>Javascript</Checkbox>
+                <b-form-checkbox inline>HTML5</b-form-checkbox> {{ " " }}
+                <b-form-checkbox inline>Css3</b-form-checkbox> {{ " " }}
+                <b-form-checkbox inline>Javascript</b-form-checkbox>
               </b-col>
             </b-row>
 
             <b-row>
               <label class="col-md-3 my-1 control-label">Button Checkbox</label>
               <b-col md="9">
-                <Checkbox
-                  checked
+                <b-form-checkbox
+                  :model-value="true"
                   size="sm"
                   button
                   button-variant="outline-primary"
                 >
                   Single toggle
-                </Checkbox>
+                </b-form-checkbox>
               </b-col>
             </b-row>
           </b-form>
@@ -682,16 +676,16 @@
             <b-row class="mb-3">
               <label class="col-md-3 my-2 control-label">Radios</label>
               <b-col md="9">
-                <Radio name="exampleRadios" value="1" checked
-                  >Default radio</Radio
+                <b-form-radio name="exampleRadios" value="1" checked
+                  >Default radio</b-form-radio
                 >
                 {{ " " }}
-                <Radio name="exampleRadios" value="2"
-                  >Second default radio</Radio
+                <b-form-radio name="exampleRadios" value="2"
+                  >Second default radio</b-form-radio
                 >
                 {{ " " }}
-                <Radio name="exampleRadios" value="3" disabled
-                  >Disabled radio</Radio
+                <b-form-radio name="exampleRadios" value="3" disabled
+                  >Disabled radio</b-form-radio
                 >
               </b-col>
             </b-row>
@@ -699,14 +693,14 @@
             <b-row class="mb-3">
               <label class="col-md-3 my-1 control-label">Inline Radios</label>
               <b-col md="9">
-                <Radio name="radioDefault" value="1" inline
-                  >HTML5</Radio
+                <b-form-radio name="radioDefault" value="1" inline
+                  >HTML5</b-form-radio
                 >
-                <Radio name="radioDefault" value="2" inline
-                  >Css</Radio
+                <b-form-radio name="radioDefault" value="2" inline
+                  >Css</b-form-radio
                 >
-                <Radio name="radioDefault" value="3" inline
-                  >Javascript</Radio
+                <b-form-radio name="radioDefault" value="3" inline
+                  >Javascript</b-form-radio
                 >
               </b-col>
             </b-row>
@@ -714,23 +708,23 @@
             <b-row>
               <label class="col-md-3 my-1 control-label">Button Radios</label>
               <b-col md="9" class="d-flex gap-1">
-                <Radio
+                <b-form-radio
                   name="radioDefault"
                   value="1"
                   button
                   button-variant="outline-success"
                   size="sm"
                   checked
-                  >Checked success radio</Radio
+                  >Checked success radio</b-form-radio
                 >
                 {{ " " }}
-                <Radio
+                <b-form-radio
                   name="radioDefault"
                   value="1"
                   button
                   button-variant="outline-danger"
                   size="sm"
-                  >Danger radio</Radio
+                  >Danger radio</b-form-radio
                 >
               </b-col>
             </b-row>
@@ -742,39 +736,37 @@
     <b-row class="justify-content-center">
       <b-col md="6" lg="6">
         <UIComponentCard title="Input Groups Static">
-          <InputGroup
-            prepend-text="@"
-            placeholder="Username"
-            class="mb-3"
-          />
+          <b-input-group class="mb-3">
+            <b-input-group-text>@</b-input-group-text>
+            <b-form-input type="text" placeholder="Username" />
+          </b-input-group>
 
-          <InputGroup
-            append-text="@mannatthemes.com"
-            placeholder="Recipient's username"
-            class="mb-3"
-          />
+          <b-input-group class="mb-3">
+            <b-form-input type="text" placeholder="Recipient's username" />
+            <b-input-group-text>@mannatthemes.com</b-input-group-text>
+          </b-input-group>
 
           <label for="basic-url" class="form-label">Your vanity URL</label>
-          <InputGroup
-            prepend-text="https://mannatthemes.com"
-            class="mb-3"
-          />
+          <b-input-group class="mb-3">
+            <b-input-group-text>https://mannatthemes.com</b-input-group-text>
+            <b-form-input type="text" />
+          </b-input-group>
 
           <b-input-group class="mb-3">
             <b-input-group-text>{{ currency }}</b-input-group-text>
-            <Input type="text" />
+            <b-form-input type="text" />
             <b-input-group-text>.00</b-input-group-text>
           </b-input-group>
 
           <b-input-group class="mb-3">
-            <Input type="text" placeholder="Username" />
+            <b-form-input type="text" placeholder="Username" />
             <b-input-group-text>@</b-input-group-text>
-            <Input type="text" placeholder="Server" />
+            <b-form-input type="text" placeholder="Server" />
           </b-input-group>
 
           <b-input-group>
             <b-input-group-text>With textarea</b-input-group-text>
-            <TextArea />
+            <b-form-textarea />
           </b-input-group>
         </UIComponentCard>
       </b-col>
@@ -791,7 +783,7 @@
                       aria-label="Checkbox for following text input"
                     />
                   </b-input-group-text>
-                  <Input aria-label="Text input with checkbox" />
+                  <b-form-input aria-label="Text input with checkbox" />
                 </b-input-group>
               </b-col>
               <b-col md="6">
@@ -803,7 +795,7 @@
                       aria-label="Checkbox for following text input"
                     />
                   </b-input-group-text>
-                  <Input aria-label="Text input with checkbox" />
+                  <b-form-input aria-label="Text input with checkbox" />
                 </b-input-group>
               </b-col>
             </b-row>
@@ -811,34 +803,30 @@
               <b-input-group-text class="btn btn-secondary"
                 ><i class="fas fa-search"></i
               ></b-input-group-text>
-              <Input type="text" />
+              <b-form-input type="text" />
             </b-input-group>
 
             <b-input-group class="mb-3">
-              <Input type="text" placeholder="Search" />
+              <b-form-input type="text" placeholder="Search" />
               <b-input-group-text class="btn btn-secondary"
                 >Go!</b-input-group-text
               >
             </b-input-group>
 
             <b-input-group class="mb-3">
-              <Input type="text" placeholder="Email" />
+              <b-form-input type="text" placeholder="Email" />
               <b-input-group-text class="btn btn-secondary"
                 >Submit</b-input-group-text
               >
             </b-input-group>
 
             <b-input-group>
-              <Select 
-                model-value="select" 
-                id="required"
-                :options="[
-                  { value: 'select', text: 'Choose...' },
-                  { value: '1', text: 'One' },
-                  { value: '2', text: 'Two' },
-                  { value: '3', text: 'Three' }
-                ]"
-              />
+              <b-form-select model-value="select" id="required">
+                <option value="select">Choose...</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </b-form-select>
               <b-input-group-text class="btn btn-secondary"
                 >Button</b-input-group-text
               >
@@ -853,12 +841,4 @@
 import { currency } from "@/helpers/constants";
 import DefaultLayout from "@/layouts/DefaultLayout.vue";
 import UIComponentCard from "@/components/UIComponentCard.vue";
-import Input from '@/components/forms/basic/Input.vue'
-import Select from '@/components/forms/basic/Select.vue';
-import TextArea from '@/components/forms/basic/TextArea.vue';
-import Range from '@/components/forms/basic/Range.vue';
-import Checkbox from '@/components/forms/basic/Checkbox.vue';
-import Radio from '@/components/forms/basic/Radio.vue';
-import InputGroup from '@/components/forms/basic/InputGroup.vue';
-import FileInput from '@/components/forms/basic/FileInput.vue';
 </script>

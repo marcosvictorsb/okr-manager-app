@@ -1,6 +1,8 @@
 <template>
   <AuthLayout>
+    
     <b-col lg="4" class="mx-auto">
+      <Alert :title="title" :autoDismiss="true"/>
       <b-card no-body>
         <b-card-body class="p-0 bg-black auth-header-box rounded-top">
           <div class="text-center p-3">
@@ -17,18 +19,18 @@
         </b-card-body>
         <b-card-body class="pt-0">
           <b-form class="my-4" @submit.prevent="handleLogin">
-            <b-form-group class="mb-2" label="Username" label-for="username">
+            <b-form-group class="mb-2" label="Email" label-for="email">
               <b-form-input
-                type="text"
-                placeholder="Enter username"
-                id="username"
-                v-model="v.email.$model"
+                type="email"
+                placeholder="Email"
+                id="email"
+                v-model="email"
               />
-              <div v-if="v.email.$error" class="text-danger">
+              <!-- <div v-if="v.email.$error" class="text-danger">
                 <span v-for="(err, idx) in v.email.$errors" :key="idx">
                   {{ err.$message }}
                 </span>
-              </div>
+              </div> -->
             </b-form-group>
 
             <b-form-group
@@ -40,13 +42,13 @@
                 type="password"
                 placeholder="Enter password"
                 id="userpassword"
-                v-model="v.password.$model"
+                v-model="password"
               />
-              <div v-if="v.password.$errors" class="text-danger">
+              <!-- <div v-if="v.password.$errors" class="text-danger">
                 <span v-for="(err, idx) in v.password.$errors" :key="idx">
                   {{ err.$message }}
                 </span>
-              </div>
+              </div> -->
             </b-form-group>
 
             <div class="form-group row mt-3">
@@ -113,6 +115,7 @@ import logoSm from "@/assets/images/logo-sm.png";
 import { required, email } from "@vuelidate/validators";
 import { useVuelidate } from "@vuelidate/core";
 import AuthLayout from "@/layouts/AuthLayout.vue";
+import Alert from "@/components/ui/Alert.vue";
 
 import HttpClient from "@/helpers/http-client";
 import { useAuthStore } from "@/stores/auth";
@@ -121,54 +124,77 @@ import { useRoute } from "vue-router";
 import type { AxiosResponse } from "axios";
 import type { User } from "@/types/auth";
 import router from "@/router";
+import AuthService from "@/services/auth.service"
 
-const credentials = reactive({
-  email: "user@email.com",
-  password: "password",
-});
+// const credentials = reactive({
+//   email: "user@email.com",
+//   password: "password",
+// });
 
-const vuelidateRules = computed(() => ({
-  email: { required, email },
-  password: { required },
-}));
+// const vuelidateRules = computed(() => ({
+//   email: { required, email },
+//   password: { required },
+// }));
 
-const v = useVuelidate(vuelidateRules, credentials);
+// const v = useVuelidate(vuelidateRules, credentials);
 
 const useAuth = useAuthStore();
 const route = useRoute();
 const query = route.query;
 
 const error = ref("");
+const email = ref("");
+const password = ref("");
+const title = ref("Welcome to Rizz");
 
 const handleLogin = async () => {
-  const result = await v.value.$validate();
+  // const result = await v.value.$validate();
 
-  if (result) {
-    try {
-      const res: AxiosResponse<User> = await HttpClient.post(
-        "/sign-in",
-        credentials,
-      );
+  // if (result) {
+  //   try {
+  //     const res: AxiosResponse<User> = await HttpClient.post(
+  //       "/sign-in",
+  //       credentials,
+  //     );
 
-      if (res.data.token) {
-        useAuth.saveSession({
-          ...res.data,
-          token: res.data.token,
-        });
-        redirectUser();
-      }
-    } catch (e: any) {
-      if (e.response?.data?.error) {
-        if (error.value.length == 0) error.value = e.response?.data?.error;
-      }
-    }
+  //     if (res.data.token) {
+  //       useAuth.saveSession({
+  //         ...res.data,
+  //         token: res.data.token,
+  //       });
+  //       redirectUser();
+  //     }
+  //   } catch (e: any) {
+  //     if (e.response?.data?.error) {
+  //       if (error.value.length == 0) error.value = e.response?.data?.error;
+  //     }
+  //   }
+  // }
+
+  try {
+    console.log('chegou porra');
+    console.log(email.value)
+    console.log(password.value)
+    const res = await AuthService.authenticate(email.value, password.value);
+    if (res.data.body.token) {
+    useAuth.saveSession({
+      ...res.data,
+      token: res.data.token,
+    });
+    redirectUser();
   }
+
+
+  } catch (error) {
+    return router.push("/");
+  }
+  
 };
 
 const redirectUser = () => {
-  if (query.redirectedFrom) {
-    return router.push(`${query.redirectedFrom}`);
-  }
-  return router.push("/");
+  // if (query.redirectedFrom) {
+  //   return router.push(`${query.redirectedFrom}`);
+  // }
+  return router.push({ name: "dashboards.analytics" });
 };
 </script>
